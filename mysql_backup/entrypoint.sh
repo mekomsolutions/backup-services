@@ -1,6 +1,6 @@
-#!/bin/sh -eux
+#!/usr/bin/env sh
 
-# create datbase credentials file
+# Create datbase credentials file
 mkdir -p /etc/mysql/ && touch /etc/mysql/db-credentials.cnf
 cat > /etc/mysql/db-credentials.cnf << EOF
 [client]
@@ -9,10 +9,10 @@ password=${DB_PASSWORD}
 EOF
 
 
-# wait for mysql to initialise
+# Wait for mysql to initialise
 /opt/wait-for-it.sh --timeout=3600 ${DB_HOST:-localhost}:${DB_PORT:-3306}
 
-# checking if the database is already available
+# Checking if the database is already available
 db_tables_count=`mysql --defaults-extra-file=/etc/mysql/db-credentials.cnf -h${DB_HOST:-localhost} --skip-column-names -e "SELECT count(*) FROM information_schema.tables WHERE table_schema = '${DB_NAME}'"`
 
 if [ ${db_tables_count} -gt -1 ]; then
