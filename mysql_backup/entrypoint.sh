@@ -16,5 +16,5 @@ EOF
 db_tables_count=`mysql --defaults-extra-file=/etc/mysql/db-credentials.cnf -h${DB_HOST:-localhost} --skip-column-names -e "SELECT count(*) FROM information_schema.tables WHERE table_schema = '${DB_NAME}'"`
 
 if [ ${db_tables_count} -gt -1 ]; then
-mysqldump --defaults-extra-file=/etc/mysql/db-credentials.cnf --host ${DB_HOST:-localhost} $DB_NAME > "${BACKUP_PATH:-/opt/backup}/${DB_NAME}-$(date +'%m-%d-%Y_%H:%M').sql"
+mysqldump --defaults-extra-file=/etc/mysql/db-credentials.cnf --host ${DB_HOST:-localhost} $DB_NAME > "${BACKUP_PATH:-/opt/backup}/${DB_NAME}-$(date +'%Y-%m-%d_%H-%M').sql"
 fi
