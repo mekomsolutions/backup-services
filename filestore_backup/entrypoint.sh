@@ -1,3 +1,3 @@
 #!/usr/bin/env sh
 
-zip -r ${BACKUP_PATH:-/opt/backup}/$(date +'%Y-%m-%d_%H-%M').zip ${FILESTORE_PATH}
+cd ${FILESTORE_PATH} && zip -r ${BACKUP_PATH:-/opt/backup}/filestore-$(date +'%Y-%m-%d_%H-%M').zip ./
