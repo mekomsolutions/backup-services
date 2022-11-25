@@ -45,7 +45,7 @@ To use Filestore backup docker service, set the value for the following environm
 |----|----|----| ----|
 | FILESTORE_PATH | Yes | / | Path to filestore folder
 | BACKUP_PATH | No | /opt/backup/ | Path where filestore backup should be stored
-
+| FILENAME | No | filestore | Name of generated zip file
 ex:
 ```
 docker run --rm -e FILESTORE_PATH=/opt/data -v ~/data:/opt/data -v ~/target:/opt/backup mekomsolutions/filestore_backup
