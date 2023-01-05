@@ -29,7 +29,7 @@ To use PostgreSQL backup docker service, set the value for the following environ
 | DB_NAME | Yes | / |
 | DB_USERNAME | Yes | / |
 | DB_PASSWORD | Yes | / |
-| DB_PORT | No | 3306 |
+| DB_PORT | No | 5432 |
 | BACKUP_PATH | No | /opt/backup/ |
 
 ex:
