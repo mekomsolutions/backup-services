@@ -11,7 +11,7 @@ chmod 600 ~/.pgpass
 
 if [ "$( PGPASSWORD=${DB_PASSWORD} psql -h ${DB_HOST:-localhost} -U ${DB_USERNAME} -tAc "SELECT 1 FROM pg_database WHERE datname='${DB_NAME}'" )" = '1' ]
 then
-    PGPASSWORD="${DB_PASSWORD}" pg_dump -h ${DB_HOST:-localhost} -U ${DB_USERNAME} -F t -d ${DB_NAME} > ${BACKUP_PATH:-/opt/backup}/${DB_NAME}-$(date +'%Y-%m-%d_%H-%M').tar
+    PGPASSWORD="${DB_PASSWORD}" pg_dump -h ${DB_HOST:-localhost} -U ${DB_USERNAME} -d ${DB_NAME} > ${BACKUP_PATH:-/opt/backup}/${DB_NAME}-$(date +'%Y-%m-%d_%H-%M').sql
 else
     echo "Database '${DB_NAME}' does not exist!"
     exit 1
