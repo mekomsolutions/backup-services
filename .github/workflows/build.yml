@@ -10,7 +10,7 @@ jobs:
     strategy:
       max-parallel: 3
       matrix: 
-        services: [filestore_backup, mysql_backup, postgres_backup]
+        services: [filestore_backup, mysql_backup, postgres_backup,s3_sync]
     steps:
       -
         name: Checkout
